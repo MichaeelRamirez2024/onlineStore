@@ -133,4 +133,25 @@ function renderCart() {
     cartTotal.textContent = total.toFixed(2);
   }
 
+  // Define una clase llamada "Order" para representar un pedido
+class Order {
+    constructor(items, total, date) {
+      this.items = items;
+      this.total = total;
+      this.date = date;
+    }
   
+    // Genera un elemento de pedido en el DOM
+    generateOrderElement() {
+      const orderElement = document.createElement('li');
+      orderElement.innerHTML = `
+        <p>Pedido realizado el ${this.date}</p>
+        <ul>
+          ${this.items.map(item => `<li>${item.quantity} x ${item.product.name}</li>`).join('')}
+        </ul>
+        <p>Total: $${this.total.toFixed(2)}</p>
+      `;
+  
+      return orderElement;
+    }
+  }
