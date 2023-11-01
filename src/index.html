@@ -1,37 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda en Línea</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OnlineStore</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"> <!-- Mueve los estilos a un archivo externo -->
 </head>
-<body>
-
-<div class="container mx-auto mt-4">
-    <h1 class="text-3xl font-bold mb-4">Tienda en Línea</h1>
-
-    <!-- Lista de Productos -->
-    <div class="grid grid-cols-3 gap-4">
-        <div class="p-4 border">
-            <h2 class="text-xl font-semibold">Producto 1</h2>
-            <p>Descripción del Producto 1</p>
-            <p>Precio: $10.00</p>
-            <button class="bg-blue-500 text-white px-4 py-2 mt-2">Agregar al Carrito</button>
-        </div>
-        <!-- Aquí puedes agregar más productos de manera similar -->
-    </div>
-
-    <!-- Carrito de Compra -->
-    <div class="mt-4">
-        <h2 class="text-2xl font-semibold">Carrito de Compra</h2>
-        <ul id="carrito" class="mt-2">
-            <!-- Los elementos del carrito se agregarán aquí -->
+<body class="bg-gray-200"> <!-- Agrega un fondo de color para mejorar el diseño visual -->
+  <div class="container mx-auto p-4">
+    <header>
+      <h1 class="text-3xl font-bold mb-4">Glamour Store | Tu Shoe Store Online favorita</h1>
+      <!-- Agrega una barra de navegación simple -->
+      <nav class="mb-8">
+        <ul class="flex space-x-4 justify-evenly font-semibold">
+          <li><a href="/Inicio">Inicio</a></li>
+          <li><a href="/productos">Productos</a></li>
+          <li><a href="/carrito">Carrito</a></li>
+          <li><a href="/historial">Historial</a></li>
         </ul>
-        <button id="realizarOrden" class="bg-green-500 text-white px-4 py-2 mt-2">Realizar Orden</button>
-    </div>
-</div>
+      </nav>
+    </header>
 
+    <main>
+      <!-- Agrega un buscador de productos -->
+      <div class="mb-8">
+        <input type="text" placeholder="Buscar productos" class="w-full p-2 rounded border">
+      </div>
+      <!--Productos en venta-->
+      <div class="container mx-auto py-8">
+        <h1 class="text-2xl font-bold mb-4">¡Productos en Venta!</h1>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+          <!-- Producto 1 -->
+          <div class="bg-white p-4 rounded shadow">
+            <img src="https://ninewestsv.com/wp-content/uploads/2023/06/DASHI-1-300x300.jpg" alt="Producto 1" class="w-full mb-2">
+            <h2 class="text-lg font-bold">Producto 1</h2>
+            <p class="text-gray-700">Descripción del producto.</p>
+            <p class="text-gray-500">$XX.XX</p>
+          </div>
+    
+          <!-- Producto 2 -->
+          <div class="bg-white p-4 rounded shadow">
+            <img src="https://ninewestsv.com/wp-content/uploads/2023/06/TACKLE3-1-300x300.jpg" alt="Producto 2" class="w-full mb-2">
+            <h2 class="text-lg font-bold">Producto 2</h2>
+            <p class="text-gray-700">Descripción del producto.</p>
+            <p class="text-gray-500">$XX.XX</p>
+          </div>
+    
+          <!-- Producto 3 -->
+          <div class="bg-white p-4 rounded shadow">
+            <img src="https://www.ninewestsv.com/wp-content/uploads/2023/06/TRULEE-B-1-300x300.jpg" alt="Producto 3" class="w-full mb-2">
+            <h2 class="text-lg font-bold">Producto 3</h2>
+            <p class="text-gray-700">Descripción del producto.</p>
+            <p class="text-gray-500">$XX.XX</p>
+          </div>
+    
+          <!-- Producto 4 -->
+          <div class="bg-white p-4 rounded shadow">
+            <img src="https://naturalizer.com.sv/wp-content/uploads/2023/08/EMERGE-PURPLE-300x300.jpg" alt="Producto 4" class="w-full mb-2">
+            <h2 class="text-lg font-bold">Producto 4</h2>
+            <p class="text-gray-700">Descripción del producto.</p>
+            <p class="text-gray-500">$XX.XX</p>
+          </div>
+    
+          <!-- Producto 5 -->
+          <div class="bg-white p-4 rounded shadow">
+            <img src="https://ninewestsv.com/wp-content/uploads/2023/06/TACKLE3N-1-300x300.jpg" alt="Producto 5" class="w-full mb-2">
+            <h2 class="text-lg font-bold">Producto 5</h2>
+            <p class="text-gray-700">Descripción del producto.</p>
+            <p class="text-gray-500">$XX.XX</p>
+          </div>
+    
+          <!-- Producto 6 -->
+          <div class="bg-white p-4 rounded shadow">
+            <img src="https://naturalizer.com.sv/wp-content/uploads/2023/10/AMY-SILVER-300x300.jpg" alt="Producto 6" class="w-full mb-2">
+            <h2 class="text-lg font-bold">Producto 6</h2>
+            <p class="text-gray-700">Descripción del producto.</p>
+            <p class="text-gray-500">$XX.XX</p>
+          </div>
+        </div>
+      </div>
+
+      <section id="product-grid">
+        <!-- Aquí van las tarjetas de productos -->
+      </section>
+
+      <section id="cart-section" class="mt-8">
+        <h2 class="text-2xl font-bold mb-4">Carrito de Compras 🛒</h2>
+        <h1>Lo que has adquirido:</h1>
+        <div class="bg-white rounded p-4 shadow">
+          <ul id="cart-items">
+            <!-- Lista de elementos del carrito -->
+          </ul>
+          <p class="text-right">Total: $<span id="cart-total">0</span></p>
+          <button id="checkout-button" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">Realizar Pedido</button>
+          <button id="clear-button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4 ml-4">Vaciar Carrito</button>
+        </div>
+      </section>
+
+      <section id="order-history" class="mt-8">
+        <h2 class="text-2xl font-bold mb-4 bg-white rounded p-4 shadow">Historial de Pedidos 🕣</h2>
+        <h1>Aquí un historial de los pedidos que has realizado</h1><br>
+            <ul>
+              <!-- Lista de historial de pedidos -->
+            </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="main.js"></script>
 </body>
-<script src="main.js"></script>
 </html>
