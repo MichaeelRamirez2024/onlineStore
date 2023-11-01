@@ -58,3 +58,25 @@ class CartItem {
       return item;
     }
   }
+
+// Crea una lista de productos
+const products = [
+    new Product('1', 'Producto 1', 19.99),
+    new Product('2', 'Producto 2', 29.99),
+    new Product('3', 'Producto 3', 9.99),
+  ];
+  
+  // Inicializa un carrito vacío
+  const cart = [];
+  
+  // Agrega un producto al carrito
+  function addToCart(product) {
+    const cartItem = cart.find(item => item.product.id === product.id);
+    if (cartItem) {
+      cartItem.quantity++;
+    } else {
+      cart.push(new CartItem(product, 1));
+    }
+  
+    renderCart(); // Actualiza la vista del carrito
+  }
