@@ -117,3 +117,20 @@ function removeFromCart(product) {
 
     clearCart(); // Vacía el carrito después de la compra
 }
+
+// Actualiza la vista del carrito
+function renderCart() {
+    cartItems.innerHTML = '';
+    cartTotal.textContent = '0';
+  
+    // Agrega elementos de carrito al DOM
+    cart.forEach(cartItem => {
+      cartItems.appendChild(cartItem.generateCartItem());
+    });
+  
+    // Calcula y muestra el total del carrito
+    const total = cart.reduce((total, item) => total + (item.product.price * item.quantity), 0);
+    cartTotal.textContent = total.toFixed(2);
+  }
+
+  
