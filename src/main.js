@@ -80,3 +80,40 @@ const products = [
   
     renderCart(); // Actualiza la vista del carrito
   }
+
+// Elimina un producto del carrito
+function removeFromCart(product) {
+    const index = cart.findIndex(item => item.product.id === product.id);
+    if (index !== -1) {
+      if (cart[index].quantity > 1) {
+        cart[index].quantity--;
+      } else {
+        cart.splice(index, 1);
+      }
+  
+      renderCart(); // Actualiza la vista del carrito
+    }
+  }
+  
+  // Vacía el carrito
+  function clearCart() {
+    cart.length = 0;
+    renderCart(); // Actualiza la vista del carrito
+  }
+  
+  // Procesa la compra
+  function checkout() {
+    if (cart.length === 0) {
+      return;
+    }
+
+    const orderItems = [...cart];
+    const orderTotal = cart.reduce((total, item) => total + (item.product.price * item.quantity), 0);
+    const orderDate = new Date().toLocaleString();
+
+    // Crea un objeto "Order" y lo agrega al historial de pedidos
+    const order = new Order(orderItems, orderTotal, orderDate);
+    orderHistory.appendChild(order.generateOrderElement());
+
+    clearCart(); // Vacía el carrito después de la compra
+}
