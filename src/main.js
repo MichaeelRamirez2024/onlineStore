@@ -32,3 +32,29 @@ class Product {
     return card;
   }
 }
+
+// Define una clase llamada "CartItem" para representar elementos del carrito
+class CartItem {
+    constructor(product, quantity) {
+      this.product = product;
+      this.quantity = quantity;
+    }
+  
+    // Genera un elemento de carrito en el DOM
+    generateCartItem() {
+      const item = document.createElement('li');
+      item.classList.add('cart-item');
+      item.dataset.id = this.product.id;
+      item.innerHTML = `
+        <span>${this.product.name}</span><br>
+        <span class="quantity">${this.quantity}</span><br>
+        <button class="remove-button bg-red-500 hover-bg-red-700 text-white font-bold py-1 px-2 rounded">Eliminar</button>
+      `;
+  
+      // Agrega un manejador de eventos al botón "Eliminar"
+      const removeButton = item.querySelector('.remove-button');
+      removeButton.addEventListener('click', () => removeFromCart(this.product));
+  
+      return item;
+    }
+  }
