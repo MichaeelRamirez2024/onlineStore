@@ -26,7 +26,7 @@ class Product {
     `;
 
     // Agrega un manejador de eventos al botón "Agregar al carrito"
-    const addButton = card.querySelector('add-button');
+    const addButton = card.querySelector('.add-button');
     addButton.addEventListener('click', () => addToCart(this));
 
     return card;
